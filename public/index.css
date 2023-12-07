@@ -1,0 +1,74 @@
+.brand-logo{
+  margin-left: 10px;
+}
+
+.todo {
+  display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .todo span.liked {
+    text-decoration: line-through;
+  }
+  
+  .todo label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    background: #f3f3f3;
+    padding: 1rem;
+  }
+  
+  .todo i {
+    z-index: 2;
+  }
+  
+
+
+  .like-form {
+    display: flex;
+    align-items: center;
+  }
+
+  .like-form label {
+    display: flex;
+    align-items: center;
+  }
+
+  .like-form .heart-icon {
+    width: 20px; /* Размер сердечка */
+    height: 20px;
+    margin-right: 5px; /* Расстояние между сердечком и текстом */
+  }
+
+  .liker {
+    display: none; /* Скрыть стандартный чекбокс */
+  }
+
+  .liker + span:before {
+    content: '\2661'; /* Юникод-символ для пустого сердца */
+    font-size: 20px;
+    margin-right: 5px; /* Расстояние между символом и текстом */
+  }
+
+  .liker:checked + span:before {
+    content: '\2764'; /* Юникод-символ для заполненного сердца */
+    color: red; /* Цвет заполненного сердца */
+  }
+
+  
+
+  .delete-form {
+    margin-right: 10px;
+  }
+
+
+  .like-form,
+  .delete-form {
+    display: inline-block;
+    margin-right: 10px;
+    width: 100%;
+  }

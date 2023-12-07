@@ -1,0 +1,42 @@
+<h2>Posts page</h2>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+{{#if posts.length}}
+<ul>
+  {{#each posts}}
+  <li class="todo">
+    
+    <form action="/like" method="POST" class="like-form">
+      <label>
+        {{#if liked}}
+        <input type="checkbox" checked name="liker" class="liker" data-id="{{_id}}">
+        <span>{{title}}</span>
+        {{else}}
+        <input type="checkbox" name="liker" class="liker" data-id="{{_id}}">
+        <span>{{title}}</span>
+        {{/if}}
+
+        <input type="hidden" value="{{_id}}" name="id">
+      </label>
+    </form>
+  <form action="/delete" method="post" class="delite-form">
+  <button class="btn btn-small" type="submit">Delete</button>
+  <input type="hidden" value="{{_id}}" name="id">
+
+   </form>
+  </li>
+  {{/each}}
+</ul>
+{{else}}
+<p>No todos!</p>
+{{/if}}
+
+<script>
+$(document).ready(function () {
+  // Обробник події зміни для чекбоксів із класом "liker"
+  $('.liker').change(function () {
+    const form = $(this).closest('form'); // Знаходимо найближчу форму
+    form.submit(); // Автоматично надсилаємо форму
+  });
+});
+</script>
